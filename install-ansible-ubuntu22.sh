@@ -19,9 +19,5 @@ sudo mv /etc/ansible/hosts /etc/ansible/hosts-default
 sudo bash -c 'cat << EOF > /etc/ansible/hosts
 [local]
 localhost
-[ceph]
-ceph-node01
-ceph-node02
-ceph-node03
 EOF'
 ansible -m ping all
