@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# before install ansible create ssh-keygen & ssh-copy-id root@localhost
+
 sudo apt install -y software-properties-common
 sudo add-apt-repository --yes --update ppa:ansible/ansible
 sudo apt install ansible -y
