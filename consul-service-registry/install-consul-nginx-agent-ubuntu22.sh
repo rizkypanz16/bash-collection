@@ -24,7 +24,7 @@ echo '{
       "interval": "10s"
     }
   },
-  "bind_addr": "192.168.7.74",
+  #"bind_addr": "192.168.7.74",
   "retry_join": ["192.168.7.71"]
 }' > /etc/consul.d/nginx.json
 chmod 640 /etc/consul.d/nginx.json
