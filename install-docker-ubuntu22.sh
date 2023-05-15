@@ -6,4 +6,5 @@ sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add 
 sudo add-apt-repository --yes "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
 sudo apt update -y
 sudo apt install docker-ce -y
-sudo systemctl status docker
+# sudo systemctl status docker
+sudo docker version
