@@ -1,6 +1,0 @@
-apt update
-wget -O - https://get.ispconfig.org | sh -s -- --use-nginx --use-ftp-ports=40110-40210 --unattended-upgrades
-
-[INFO] Your ISPConfig admin password is: m6uhnrLUnrpKRvf
-[INFO] Your MySQL root password is: TK7Te5FvJDXWx2H6Kjv5
-[INFO] Warning: Please delete the log files in /tmp/ispconfig-ai/var/log/setup-* once you don't need them anymore because they contain your passwords!
