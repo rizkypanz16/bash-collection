@@ -20,6 +20,8 @@ sudo sed -i 's.#become_ask_pass=False.become_ask_pass=False.' /etc/ansible/ansib
 sudo mv /etc/ansible/hosts /etc/ansible/hosts-default
 sudo bash -c 'cat << EOF > /etc/ansible/hosts
 [local]
-localhost
+# localhost
+# ansible_user=ubuntu ansible_host=192.168.1.3 ansible_become=true
 EOF'
-ansible -m ping all
+ansible --version
+#ansible -m ping all
