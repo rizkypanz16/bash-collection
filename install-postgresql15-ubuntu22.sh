@@ -21,5 +21,6 @@ sudo cat /etc/postgresql/15/main/postgresql.conf | grep listen
 echo "host    all             all             0.0.0.0/0               md5" | sudo tee -a /etc/postgresql/15/main/pg_hba.conf
 sudo cat /etc/postgresql/15/main/pg_hba.conf | grep md5
 
-sudo systemctl restart postgresql
+sudo systemctl restart postgresql && sudo systemctl status postgresql
 
+sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'ijinmasuk';"
