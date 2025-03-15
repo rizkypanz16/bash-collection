@@ -70,3 +70,16 @@ sudo nano /etc/containerd/config.toml
           endpoint = ["http://192.168.1.91:5000"]
 
 sudo systemctl restart containerd
+
+#=================================================================================================#
+# Install kubernetes metrics server
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.7.2/components.yaml
+kubectl edit deployment metrics-server -n kube-system
+
+    args:
+      - --kubelet-insecure-tls
+      - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
+
+kubectl get pods -n kube-system --selector=k8s-app=metrics-server
+kubectl top nodes
+kubectl top pods -A
