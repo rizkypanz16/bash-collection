@@ -10,6 +10,28 @@ sudo mv promtail-linux-amd64 /usr/local/bin/promtail
 sudo mkdir -p /etc/promtail
 sudo touch /tmp/positions.yaml
 sudo touch /etc/promtail/promtail-local-config.yaml
+
+sudo echo "server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+positions:
+  filename: /tmp/positions.yaml
+
+clients:
+  - url: http://192.168.1.3:3100/loki/api/v1/push
+
+scrape_configs:
+- job_name: asset-inspection-cms-be
+  static_configs:
+  - targets:
+      - localhost
+    labels:
+      hostname: "127.0.0.1"
+      job: "auth-log"
+      __path__: /var/log/auth.log
+" | sudo tee /etc/promtail/promtail-local-config.yaml
+
 sudo echo "[Unit]
 Description=Promtail client for sending logs to Loki
 After=network.target
